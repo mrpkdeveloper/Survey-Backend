@@ -41,7 +41,7 @@ const surveyinfo = db.define('surveyinfo', {
         allowNull: false,
     },
 })
-db.sync({ force: true })
+db.sync()
     .then(() => console.log('database synced successfully'))
     .catch((err) => console.error("error in creating database"))
 
