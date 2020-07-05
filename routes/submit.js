@@ -7,8 +7,8 @@ const route = Router()
 //     res.send("form submitted successfully")
 // })
 
-route.get('/', (req, res) => {
-    surveyinfo.findAll()
+route.get('/', async (req, res) => {
+    await surveyinfo.findAll({ order: [['id', 'DESC']], limit: 1 })
         .then((survey) => {
             res.status(200).send(survey)
         })
@@ -32,6 +32,7 @@ route.post('/', (req, res) => {
     })
         .then((surveyinfo) => {
             res.status(201).send(surveyinfo)
+
         })
         .catch((err) => {
             res.status(501).send({ error: "could not able to add survey" })
