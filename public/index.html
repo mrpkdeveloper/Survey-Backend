@@ -15,56 +15,57 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script src="./review.js"></script>
+    <script src="./index.js"></script>
 </head>
 
 <body>
     <h1 class=" text-center">Survey</h1>
-    <div class="container my-4">
-        <form>
-            <div class="form-group">
-                <div class="form-row ">
-                    <div class="form-group col-md-6">
-                        <label for="Firstname">First Name</label>
-                        <input type="text" class="form-control" id="Firstname" name="firstname" placeholder="Firstname">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="Lastname">Lastname</label>
-                        <input type="text" class="form-control" id="Lastname" name="lastname" placeholder="text">
-                    </div>
-                </div>
+    <!-- <form> -->
 
-                <label for="Email">Email address</label>
-                <input type="email" class="form-control" id="Email" name="email" placeholder="name@example.com">
+    <div class="container my-4">
+        <div class="form-group">
+            <div class="form-row ">
+                <div class="form-group col-md-6">
+                    <label for="Firstname">First Name</label>
+                    <input type="text" class="form-control" id="Firstname" name="firstname" placeholder="Firstname">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="Lastname">Lastname</label>
+                    <input type="text" class="form-control" id="Lastname" name="lastname" placeholder="text">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="Age">Age</label>
-                <select class="form-control" id="Age" name="age">
-                    <option>18</option>
-                    <option>19</option>
-                    <option>20</option>
-                    <option>21</option>
-                    <option>22</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="Rate">Rate our survey</label>
-                <select class="form-control" id="" Rate" name="rate">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="FeedBack">FeedBack</label>
-                <textarea class="form-control" id="FeedBack" name="feedback" rows="3"></textarea>
-            </div>
-            <button type="submit" name="submit" id="submit">Reset</button>
-            <button type="submit" name="submit" id="submit" formaction="/submit" formmethod="POST">Submit</button>
-            <button id="review" formaction="/review" formmethod="GET" name="q">Review</button>
-        </form>
+
+            <label for="Email">Email address</label>
+            <input type="email" class="form-control" id="Email" name="email" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+            <label for="Age">Age</label>
+            <select class="form-control" id="Age" name="age">
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Rate">Rate our survey</label>
+            <select class="form-control" id="Rate" name="rate">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="FeedBack">FeedBack</label>
+            <textarea class="form-control" id="Feedback" name="feedback" rows="3"></textarea>
+        </div>
+        <!-- <button type="submit" name="submit" id="submit">Reset</button> -->
+        <!-- <button type="submit" name="submit" id="submit" formaction="/submit" formmethod="POST">Submit</button> -->
+        <button id="review" name="review">Review</button>
+        <!-- </form> -->
     </div>
 
 </body>

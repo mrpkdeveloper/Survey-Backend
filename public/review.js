@@ -1,5 +1,10 @@
-function loadsurvey() {
-    $.get('/submit', (surveyinfo) => {
+$(function () {
+    loadsurvey()
+})
+
+
+async function loadsurvey() {
+    await $.get('/submit', (surveyinfo) => {
         console.log(surveyinfo.firstname)
         $('#survey').append(
             $(`
