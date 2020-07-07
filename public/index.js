@@ -27,6 +27,14 @@ $(
 
             })
 
+
+            // getsurvey(function (info) {
+            //     console.log(info[0].firstname)
+            //     for (i in info) {
+            //         console.log(info[i])
+            //     }
+            // })
+
         })
 
     }
@@ -45,3 +53,10 @@ function addsurvey(a, done) {
         done(data)
     })
 }
+
+// function getsurvey(done) {
+//     $.get('/submit', function (data) {
+//         // console.log(data)
+//         done(data)
+//     })
+// }

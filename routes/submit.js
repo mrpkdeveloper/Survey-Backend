@@ -7,8 +7,8 @@ const route = Router()
 //     res.send("form submitted successfully")
 // })
 
-route.get('/', async (req, res) => {
-    await surveyinfo.findAll({ order: [['id', 'DESC']], limit: 1 })
+route.get('/', (req, res) => {
+    surveyinfo.findAll({ order: [['id', 'DESC']], limit: 1 })
         .then((survey) => {
             res.status(200).send(survey)
         })
