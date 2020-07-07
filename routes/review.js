@@ -1,6 +1,5 @@
 const { Router } = require('express')
 const { surveyinfo } = require('../db')
-const path = require('path')
 const route = Router()
 
 // route.get('/', (req, res) => {
@@ -31,13 +30,17 @@ route.post('/', (req, res) => {
         age: req.body.age,
         rate: req.body.rate,
         feedback: req.body.feedback
+    }, {
+        where: {
+            id: req.body.id
+        }
     })
         .then((surveyinfo) => {
             res.status(201).send(surveyinfo)
 
         })
         .catch((err) => {
-            res.status(501).send({ error: "could not able to add survey" })
+            res.status(501).send({ error: "could not able to update survey" })
         })
 })
 module.exports = route
