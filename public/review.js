@@ -1,5 +1,6 @@
 $(function () {
     loadsurvey()
+
 })
 
 function loadsurvey() {
@@ -43,8 +44,6 @@ function loadsurvey() {
         
         `)
         )
-
-
     }
     )
 }
