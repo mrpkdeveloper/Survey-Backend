@@ -22,7 +22,7 @@ $(
             console.log("button clicked")
 
             addsurvey(surveyinfo, function (addedsurvey) {
-                window.alert(" added " + addedsurvey.firstname + " to the database ")
+                // window.alert(" added " + addedsurvey.firstname + " to the database ")
                 window.location.href = "./review.html"
 
             })
