@@ -1,7 +1,36 @@
 $(function () {
     loadsurvey()
 
-})
+    let fname = $('#Firstname_s')
+    let lname = $('#Lasttname_s')
+    let email = $('#email')
+    let age = $('#Age')
+    let rate = $('#Rate')
+    let feedback = $('#Feedback')
+    let submit = $('#submit')
+
+    submit.click(function () {
+        let surveyinfo = {
+            firstname: fname.val(),
+            lastname: lname.val(),
+            email: email.val(),
+            age: age.val(),
+            rate: rate.val(),
+            feedback: feedback.val(),
+
+        }
+        console.log("button clicked")
+
+        addsurvey(surveyinfo, function (addedsurvey) {
+            window.alert(" Updated " + addedsurvey.firstname + " to the database ")
+            // window.location.href = "./review.html"
+
+        })
+    })
+
+}
+)
+
 
 function loadsurvey() {
     $.get('/submit', (surveyinfo) => {
@@ -23,7 +52,7 @@ function loadsurvey() {
             </div>
 
             <label for="Email">Email address</label>
-            <input type="email" class="form-control" placeholder=${surveyinfo[0].email}>
+            <input type="email" class="form-control" id="email" placeholder=${surveyinfo[0].email}>
         </div>
         <div class="form-group">
             <label for="Age">Age</label>
@@ -33,7 +62,7 @@ function loadsurvey() {
         </div>
         <div class="form-group">
             <label for="Rate">Rate our survey</label>
-            <select class="form-control" id="" Rate" name="rate">
+            <select class="form-control" id="Rate" name="rate">
                 <option>${surveyinfo[0].rate}</option>
             </select>
         </div>
@@ -49,3 +78,16 @@ function loadsurvey() {
 }
 
 // loadsurvey()
+
+function addsurvey(a, done) {
+    $.post('/review', {
+        firstname: a.firstname,
+        lastname: a.lastname,
+        email: a.email,
+        age: a.age,
+        rate: a.rate,
+        feedback: a.feedback,
+    }, function (data) {
+        done(data)
+    })
+}
