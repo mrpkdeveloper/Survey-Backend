@@ -6,10 +6,9 @@ $(
         let age = $("#Age")
         let rate = $("#Rate")
         let feedback = $("#Feedback")
-        let review_btn = $("#review")
-        let submit_btn = $("#submit")
+        let edit_btn = $("#edit")
 
-        review_btn.click(function () {
+        edit_btn.click(function () {
             let surveyinfo = {
                 firstname: fname.val(),
                 lastname: lname.val(),
@@ -23,7 +22,7 @@ $(
 
             addsurvey(surveyinfo, function (addedsurvey) {
                 // window.alert(" added " + addedsurvey.firstname + " to the database ")
-                window.location.href = "./review.html"
+                window.location.href = "./edit.html"
 
             })
 

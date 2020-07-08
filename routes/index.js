@@ -4,7 +4,7 @@ const route = require('express').Router()
 route.use('/submit', require('./submit'))
 
 //on requesting for /review review.js loads
-route.use('/review', require('./review'))
+route.use('/edit', require('./edit'))
 
 // route.use('/private', require('./private'))
 

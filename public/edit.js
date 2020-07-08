@@ -69,12 +69,22 @@ async function loadsurvey() {
             <label for="Age">Age</label>
             <select class="form-control" id="Age" name="age">
                 <option>${surveyinfo[0].age}</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
             </select>
         </div>
         <div class="form-group">
             <label for="Rate">Rate our survey</label>
             <select class="form-control" id="Rate" name="rate">
                 <option>${surveyinfo[0].rate}</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
             </select>
         </div>
         <div class="form-group">
@@ -91,7 +101,7 @@ async function loadsurvey() {
 // loadsurvey()
 
 function addsurvey(a, done) {
-    $.post('/review', {
+    $.post('/edit', {
         id: a.id,
         firstname: a.firstname,
         lastname: a.lastname,
