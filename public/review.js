@@ -1,58 +1,69 @@
 $(function () {
+    console.log("before load survey")
     loadsurvey()
+        .then(() => {
 
-    let fname = $('#Firstname_s')
-    let lname = $('#Lasttname_s')
-    let email = $('#email')
-    let age = $('#Age')
-    let rate = $('#Rate')
-    let feedback = $('#Feedback')
-    let submit = $('#submit')
+            console.log("after loadsurvey")
+            let fname = $('#Firstname_s')
+            let lname = $('#Lastname-s')
+            let email = $('#email')
+            let age = $('#Age')
+            let rate = $('#Rate')
+            let feedback = $('#FeedBack')
+            let submit = $('#submit')
 
-    submit.click(function () {
-        let surveyinfo = {
-            firstname: fname.val(),
-            lastname: lname.val(),
-            email: email.val(),
-            age: age.val(),
-            rate: rate.val(),
-            feedback: feedback.val(),
+            submit.click(function () {
+                console.log(id_update)
+                console.log(fname)
+                console.log(feedback.val())
+                let surveyinfo = {
+                    id: id_update,
+                    firstname: fname.val(),
+                    lastname: lname.val(),
+                    email: email.val(),
+                    age: age.val(),
+                    rate: rate.val(),
+                    feedback: feedback.val(),
 
-        }
-        console.log("button clicked")
+                }
+                console.log("button clicked")
 
-        addsurvey(surveyinfo, function (addedsurvey) {
-            window.alert(" Updated " + addedsurvey.firstname + " to the database ")
-            // window.location.href = "./review.html"
+                addsurvey(surveyinfo, function (addedsurvey) {
+                    window.alert(" Updated " + addedsurvey.firstname + " to the database ")
+                    // window.location.href = "./review.html"
 
+                })
+            })
         })
-    })
+
 
 }
 )
 
 
-function loadsurvey() {
-    $.get('/submit', (surveyinfo) => {
-        console.log(surveyinfo[0].firstname)
+async function loadsurvey() {
+    await $.get('/submit', (surveyinfo) => {
+        // console.log(surveyinfo[0].firstname)
+        console.log("in loadsurvey")
+        id_update = surveyinfo[0].id
         $('#survey').append(
             $(`
             <div class="form-group">
             <div class="form-row ">
                 <div class="form-group col-md-6">
                     <label for="Firstname">First Name</label>
-                    <input type="text" class="form-control" id="Firstname_s" name="firstname_s"
-                        placeholder=${surveyinfo[0].firstname}>
+                    <textarea type="text" class="form-control" id="Firstname_s" name="firstname_s"
+                     rows="1">${surveyinfo[0].firstname}</textarea>
+
                 </div>
                 <div class="form-group col-md-6">
                     <label for="Lastname">Lastname</label>
-                    <input type="text" class="form-control" id="Lastname-s" name="lastname"
-                        placeholder=${surveyinfo[0].lastname}>
+                    <textarea rows="1" type="text" class="form-control" id="Lastname-s" name="lastname">${surveyinfo[0].lastname}</textarea>
                 </div>
             </div>
 
             <label for="Email">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder=${surveyinfo[0].email}>
+            <textarea rows="1" type="email" class="form-control" id="email">${surveyinfo[0].email}</textarea>
         </div>
         <div class="form-group">
             <label for="Age">Age</label>
@@ -81,6 +92,7 @@ function loadsurvey() {
 
 function addsurvey(a, done) {
     $.post('/review', {
+        id: a.id,
         firstname: a.firstname,
         lastname: a.lastname,
         email: a.email,
