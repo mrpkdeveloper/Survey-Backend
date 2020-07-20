@@ -7,6 +7,7 @@ $(
         let rate = $("#Rate")
         let feedback = $("#Feedback")
         let edit_btn = $("#edit")
+        let review_btn = $("#review")
 
         edit_btn.click(function () {
             let surveyinfo = {
@@ -35,6 +36,10 @@ $(
             // })
 
         })
+
+        // review_btn.click(function () {
+        //     window.location.href = "./review.html"
+        // })
 
     }
 )

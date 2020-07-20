@@ -4,8 +4,8 @@ $(function () {
 )
 
 
-async function loadsurvey() {
-    await $.get('/review', (surveyinfo) => {
+function loadsurvey() {
+    $.get('/review', (surveyinfo) => {
         console.log(surveyinfo.firstname)
         console.log("in loadsurvey")
         $('#review').append(
